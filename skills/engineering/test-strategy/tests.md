@@ -75,3 +75,36 @@ test("calculateTotal sums line items", () => {
   expect(calculateTotal([{ price: 10 }, { price: 5 }])).toBe(15);
 });
 ```
+
+**Output-copy tests**: the test-after version of a tautology. The expected value was produced by running the code, so the test locks in whatever the code does, bugs included.
+
+```typescript
+// BAD: Expected value pasted from a run of the code
+test("formatDuration formats long durations", () => {
+  expect(formatDuration(90061)).toMatchInlineSnapshot(`"1d 1h 1m 1s"`);
+});
+
+// GOOD: Expected value taken from the spec's worked example
+test("formatDuration formats long durations", () => {
+  // Spec: "90061 seconds displays as 1 day 1 h 1 min 1 s"
+  expect(formatDuration(90061)).toBe("1 day 1 h 1 min 1 s");
+});
+```
+
+## Choosing the level
+
+```typescript
+// BAD: Unit test for logic every checkout e2e test already runs through
+test("applyDiscount subtracts ten percent", () => {
+  expect(applyDiscount(100, "TEN")).toBe(90);
+});
+
+// GOOD: The e2e test for the checkout journey asserts the discounted total,
+// and sabotaging applyDiscount turns it red, so no unit test is written.
+
+// GOOD: Unit-level, with its reason recorded
+// Why not higher: the parser has dozens of boundary cases; e2e would sample two.
+test.each(durationCases)("parseDuration(%s)", (input, expected) => {
+  expect(parseDuration(input)).toEqual(expected);
+});
+```

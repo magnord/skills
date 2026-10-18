@@ -18,7 +18,7 @@ Several skills are close to it. Pick by the problem you have:
 | The *words of the domain*: "account" means three things, two people mean different things by "cancellation" | [domain-modeling](https://aihero.dev/skills-domain-modeling) |
 | You don't yet know *which* module to redesign | [improve-codebase-architecture](https://aihero.dev/skills-improve-codebase-architecture) (the survey that finds candidates) |
 | You want the design argued with, not just named | [grilling](https://aihero.dev/skills-grilling) |
-| There's a concrete behaviour to build and you want tests that survive a refactor | [tdd](https://aihero.dev/skills-tdd) |
+| There's a concrete behaviour to build and you want tests that survive a refactor | [test-strategy](https://aihero.dev/skills-test-strategy) |
 
 ## The vocabulary
 

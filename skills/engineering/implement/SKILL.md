@@ -8,9 +8,9 @@ Implement the work described by the user in the spec or tickets.
 
 If the user passes a ticket reference, fetch it from the issue tracker and state its title before starting. If the reference is ambiguous, ask.
 
-Call the Skill tool with "tdd" where possible, at pre-agreed seams.
+Call the Skill tool with "test-strategy" and follow it: plan the tests at the seams the spec agreed before writing code, implement, then write, sabotage-check and prune the planned tests.
 
-Run typechecking regularly, single test files regularly, and the full test suite once at the end.
+Run typechecking and the touched test files regularly. Once at the end, run the full suite, including the e2e tests for every journey the work touched.
 
 Once done, call the Skill tool with "code-review" to review the work.
 

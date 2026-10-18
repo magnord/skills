@@ -26,14 +26,16 @@ Communication to and from subagents should be sparse. Communicate primarily thro
 
 4. Use **implementer subagents** to implement each ticket, each in its own worktree on its own branch. Each implementer subagent:
    - confirms its worktree is based on the integration branch before starting, and resets onto it if not;
-   - calls the Skill tool with `tdd` to build the ticket;
+   - calls the Skill tool with `test-strategy` to build the ticket;
    - merges the integration branch tip into its own branch before reporting done
 
 5. Once an **implementer subagent** completes, merge its work to the integration branch with a **merger subagent**.
 
 6. If this changes the **frontier** of available tickets, kick off more **implementer subagents** to work on the new tickets. This allows for maximum concurrency.
 
-7. Once all tickets are complete, call the Skill tool with `code-review` on the integration branch. Fix all issues raised by the code review in a single **implementer subagent**.
+   For a ticket the spec marks high-risk, also run a **verifier subagent** in parallel with its implementer. It sees only the spec, the ticket and the public interface, never the implementation, and writes that ticket's acceptance tests. Independence from the implementation is what stops tests from copying the code's bugs.
+
+7. Once all tickets are complete, run the full suite, e2e included, on the integration branch, then call the Skill tool with `code-review` on it. Fix all issues raised by the code review in a single **implementer subagent**, which also applies the `test-strategy` prune rule across the whole branch: tests from parallel implementers overlap, so a later ticket's e2e test often subsumes an earlier ticket's integration tests.
 
 8. If a draft PR exists, mark it ready for review. Otherwise, resolve each ticket the way the issue tracker closes work, and report the integration branch.
 

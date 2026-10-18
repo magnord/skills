@@ -26,7 +26,7 @@ You invoke this by typing `/implement-spec`, and the agent won't reach for it on
 Everything lands on one branch. Each implementer:
 
 1. confirms its worktree is based on the integration branch before it starts,
-2. builds its ticket with [tdd](https://aihero.dev/skills-tdd), red-green one slice at a time,
+2. builds its ticket with [test-strategy](https://aihero.dev/skills-test-strategy): tests planned before the code, written after it, each sabotage-checked,
 3. merges the integration branch tip into its own branch before reporting done, so landing it is a fast-forward.
 
 The tracker decides whether a pull request exists at all. If your tracker closes work through PRs, or you ask for one, the skill opens a draft PR after the first merge and marks it ready at the end. Otherwise the run stops on the integration branch with every ticket resolved the way your tracker closes work, which works fully offline against a local markdown tracker.
@@ -71,7 +71,7 @@ A worktree holds only what git tracks. Tests that read gitignored fixtures, loca
 
 - Several implementers are running at once whenever the graph allows, not one after another.
 - A ticket starts as soon as its last blocker lands on the integration branch, not when the whole run ends.
-- Every ticket's trace shows `tdd` running, with a failing test before the code.
+- Every ticket's trace shows `test-strategy` running, and each new test was seen to fail under sabotage.
 - Merges into the integration branch are fast-forwards, not conflict resolutions.
 - The run ends on one branch with every ticket resolved, and a PR only if your tracker wanted one.
 

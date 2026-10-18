@@ -61,7 +61,10 @@ Exception: if a prototype produced a snippet that encodes a decision more precis
 A list of testing decisions that were made. Include:
 
 - A description of what makes a good test (only test external behavior, not implementation details)
-- Which modules will be tested
+- The **critical paths**, each with the seam and level (e2e, integration, unit) that protects it, and its expected outcome from the user stories
+- Any test planned below e2e, with one line saying why not higher
+- What is deliberately left untested
+- Whether a test harness exists at each seam; if not, building it is the first ticket
 - Prior art for the tests (i.e. similar types of tests in the codebase)
 
 ## Out of Scope

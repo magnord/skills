@@ -1,20 +1,20 @@
 {
-  "name": "mattpocock",
+  "name": "magnord",
   "owner": {
     "name": "Matt Pocock",
     "url": "https://www.aihero.dev"
   },
-  "description": "Matt Pocock's skills for real engineering, as an installable Claude Code plugin.",
+  "description": "Fork of Matt Pocock's skills with test-strategy in place of TDD.",
   "plugins": [
     {
       "name": "mattpocock-skills",
       "source": "./",
-      "description": "Matt Pocock's agent skills for real engineering (grilling, spec/ticket flows, TDD, code review, domain modelling and more).",
+      "description": "Matt Pocock's agent skills for real engineering (grilling, spec/ticket flows, test strategy, code review, domain modelling and more).",
       "category": "engineering",
       "keywords": [
         "engineering",
         "skills",
-        "tdd",
+        "test-strategy",
         "code-review",
         "grilling"
       ]

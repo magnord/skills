@@ -1,3 +1,5 @@
+> **Archived.** Removed in this fork after 1.3.1. Replaced by [test-strategy](https://aihero.dev/skills-test-strategy), which drops the red-green loop.
+
 ## What it does
 
 `tdd` builds a feature or fixes a bug test-first: one failing test, then just enough code to pass it, then the next behaviour. It carries the standards that make that loop produce tests worth keeping: what a good test is, where tests go, what mocks are for, and the three anti-patterns that make a suite worthless.

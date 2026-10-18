@@ -32,6 +32,8 @@ Break the work into **tracer bullet** tickets.
 - A completed slice is demoable or verifiable on its own
 - Each slice is sized to fit in a single fresh context window
 - Any prefactoring should be done first
+- When an agreed test seam has no harness yet, the first ticket builds it as a walking skeleton (one e2e or integration test running through the real wiring), and every ticket that tests at that seam is blocked by it
+- Each critical acceptance criterion names the seam that verifies it
 
 </vertical-slice-rules>
 

@@ -12,7 +12,7 @@ Type `/code-review`, or the agent reaches for it automatically when you ask to r
 | --- | --- |
 | A diff exists and you want to know if it is built right *and* is the right thing | `code-review` |
 | You want bugs hunted in the diff: null paths, races, off-by-one | Claude Code's own built-in review, not this one (see the name clash below) |
-| Nothing is written yet and you want it written test-first | [tdd](https://aihero.dev/skills-tdd) |
+| Nothing is written yet and you want to decide which tests it needs | [test-strategy](https://aihero.dev/skills-test-strategy) |
 | A whole spec needs building, review included | [implement](https://aihero.dev/skills-implement), which calls this skill itself |
 | The whole codebase has drifted, not one diff | [improve-codebase-architecture](https://aihero.dev/skills-improve-codebase-architecture) |
 | Something is broken and you do not know why | [diagnosing-bugs](https://aihero.dev/skills-diagnosing-bugs) |

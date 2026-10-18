@@ -55,6 +55,15 @@ Each smell reads *what it is* → *how to fix*; match it against the diff:
 - **Middle Man**: a class or function that mostly just delegates onward. → cut it, call the real target direct.
 - **Refused Bequest**: a subclass or implementer that ignores or overrides most of what it inherits. → drop the inheritance, use composition.
 
+The Standards axis also carries the **test-smell baseline**, bound by the same two rules (the repo overrides; always a judgement call):
+
+- **Unit by habit**: a test below e2e with no stated reason for not testing higher. → move it up a seam, or record why it can't be.
+- **Output copy**: an expected value that looks pasted from a run of the code rather than taken from the spec. → re-derive it from the spec.
+- **Mocked own module**: a stand-in for code the repo owns. → use the real module, or a local stand-in for its I/O.
+- **Overlap**: two tests that protect the same path at different levels. → keep the higher one unless the lower one makes failures much faster to locate.
+- **Unprotected critical path**: a branch the spec calls critical with no test touching it. → add a test at its seam.
+- **Weakened test**: an existing assertion loosened, skipped or deleted without a stated reason. → restore it, or state the reason.
+
 ### 4. Spawn both sub-agents in parallel
 
 Issue both sub-agent calls together, in the foreground, and aggregate the reports they return.
@@ -62,7 +71,7 @@ Issue both sub-agent calls together, in the foreground, and aggregate the report
 **Standards sub-agent prompt** should include:
 
 - The full diff command and commit list.
-- The list of standards-source files you found in step 3, **plus the smell baseline from step 3** pasted in full (the sub-agent has no other access to it).
+- The list of standards-source files you found in step 3, **plus the smell and test-smell baselines from step 3** pasted in full (the sub-agent has no other access to them).
 - The brief: "Report, per file/hunk where relevant, (a) every place the diff violates a documented standard: cite the standard (file + the rule); and (b) any baseline smell you spot: name it and quote the hunk. Distinguish hard violations from judgement calls: documented-standard breaches can be hard, but baseline smells are always judgement calls, and a documented repo standard overrides the baseline. Skip anything tooling enforces. Under 400 words."
 
 **Spec sub-agent prompt** should include:
